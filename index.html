@@ -46,22 +46,21 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
-    fetch('https://github.com/getasewsw/MyBlog/blob/main/text1.txt')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('File not found');
-        }
-        return response.text();
-      })
-      .then(content => {
-        document.getElementById('blogTitle').textContent = 'text1.txt'; // Or you can set it to any title you want
-        document.getElementById('fileContent').textContent = content;
-      })
-      .catch(error => {
-        console.error(error);
-        document.getElementById('blogTitle').textContent = 'File not found';
-        document.getElementById('fileContent').textContent = 'The specified file does not exist.';
-      });
+    fetch('text1.txt')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('File not found');
+    }
+    return response.text();
+  })
+  .then(content => {
+    document.getElementById('fileContent').textContent = content;
+  })
+  .catch(error => {
+    console.error(error);
+    document.getElementById('fileContent').textContent = 'Error: File not found.';
+  });
+
   </script>
 </body>
 </html>
